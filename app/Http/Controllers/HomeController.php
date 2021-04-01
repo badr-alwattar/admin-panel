@@ -33,4 +33,9 @@ class HomeController extends Controller
 
         return view('home', compact('widget'));
     }
+
+    public function set_locale(Request $request){
+        setcookie('lang', $request->locale, time() + (86400 * 365), "/");
+        return redirect()->back();
+    }
 }
